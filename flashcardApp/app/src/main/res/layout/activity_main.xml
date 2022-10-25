@@ -10,7 +10,9 @@
         android:id="@+id/flashcard_question"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:background="#66BB6A"
         android:text="@string/who_was_the_44th_president_of_the_united_states"
+        android:textColor="#ffffff"
         android:textAlignment="center"
         android:textSize="40sp" />
 
@@ -18,10 +20,12 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:background="#7E57C2"
         android:gravity="center"
         android:text="@string/barack_obama"
         android:textAlignment="center"
         android:textSize="40sp"
+        android:textColor="#ffffff"
         android:visibility="invisible" />
 
     <ImageView

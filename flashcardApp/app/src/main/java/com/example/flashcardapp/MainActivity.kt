@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.ViewAnimationUtils
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.snackbar.Snackbar
 
@@ -16,9 +17,35 @@ class MainActivity : AppCompatActivity() {
         val flashcardAnswer = findViewById<View>(R.id.textView2)
 
         flashcardQuestion.setOnClickListener() {
+
+            val answerSideView = findViewById<View>(R.id.textView2)
+
+// get the center for the clipping circle
+
+// get the center for the clipping circle
+            val cx = answerSideView.width / 2
+            val cy = answerSideView.height / 2
+
+// get the final radius for the clipping circle
+
+// get the final radius for the clipping circle
+            val finalRadius = Math.hypot(cx.toDouble(), cy.toDouble()).toFloat()
+
+// create the animator for this view (the start radius is zero)
+
+// create the animator for this view (the start radius is zero)
+            val anim = ViewAnimationUtils.createCircularReveal(answerSideView, cx, cy, 0f, finalRadius)
+            //end circular anim
             flashcardQuestion.visibility = View.INVISIBLE // set question card invisible
             flashcardAnswer.visibility = View.VISIBLE // set answer card visible
+            //set duration of anim
+            anim.duration = 3000
+            anim.start()
+        }
 
+        flashcardAnswer.setOnClickListener() {
+            flashcardQuestion.visibility = View.VISIBLE // set question card invisible
+            flashcardAnswer.visibility = View.INVISIBLE // set answer card visible
         }
 
         val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -43,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<View>(R.id.addButton).setOnClickListener {
             val intent = Intent(this, AddCardActivity::class.java)
             resultLauncher.launch(intent) // previously startActivity(intent), but changed so data in addCard could be saved
+            overridePendingTransition(R.anim.right_in, R.anim.left_out)
 
         } // onClick that when clicked, takes us to addCardActivity
 
