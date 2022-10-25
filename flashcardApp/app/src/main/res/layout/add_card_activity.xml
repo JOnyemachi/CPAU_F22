@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddCardActivity">
+
+    <ImageView
+        android:id="@+id/cancel_button"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/cancel_button_asset"
+        android:translationX="300dp"
+        android:translationY="600dp" />
+
+    <EditText
+        android:id="@+id/enterQuestionField"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="Enter your question here:"
+        android:inputType="textMultiLine"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        android:textColorHint="#757575"
+        android:translationY="50dp" />
+
+    <EditText
+        android:id="@+id/enterAnswerField"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="Enter its answer here:"
+        android:inputType="textMultiLine"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        android:textColorHint="#757575"
+        android:translationY="150dp" />
+
+    <ImageView
+        android:id="@+id/save_button"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/save_button_asset"
+        android:translationX="40dp"
+        android:translationY="600dp"/>
+</RelativeLayout>
